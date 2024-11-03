@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visual Analytics</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="script.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .select-container {
+      margin-bottom: 20px;
+      padding: 10px;
+      text-align: center;
+    }
+    .select-container label {
+      margin-right: 10px;
+      font-size: 16px;
+    }
+    .select-container select {
+      appearance: none;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .select-container select:hover {
+      background-color: #e9e9e9;
+    }
+    .select-container::after {
+      content: '▼';
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    svg {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .tooltip {
+      position: absolute;
+      text-align: center;
+      width: auto;
+      padding: 5px;
+      font: 12px sans-serif;
+      background: lightsteelblue;
+      border: 0px;
+      border-radius: 8px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .legend {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="select-container">
+    <label for="atributoSelect">Tipo de cobertura:</label>
+    <select id="atributoSelect"></select>
+  </div>
+  <svg id="svgContainer" width="100%" height="600"></svg>
+  <div id="tooltip" class="tooltip"></div>
+  <svg id="lineChart" width="100%" height="300"></svg>
+  <div id="legend" class="legend"></div>
+</body>
+</html>
